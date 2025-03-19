@@ -74,4 +74,11 @@ It only checks for the following rules:
 > - Avoiding the use of `;` in the code
 > - Not more the +400 lines of code per `.py` file
 
+## Libs Used:
+- sys
+- os
+- pathlib 
+- re
+- argparse
+
 Made by: [jj-sm](https://github.com/jj-sm/) 🐍

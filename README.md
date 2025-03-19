@@ -21,7 +21,8 @@ File checked: test.py
 
 - on zhs (macOS, Linux, UNIX) *also Windows:
 
->[!NOTE] Remember to use the correct `python` call. It can be `python`, `python3`, `py`, `py3`, etc.
+>[!NOTE] 
+> Remember to use the correct `python` call. It can be `python`, `python3`, `py`, `py3`, etc.
 
 Save log on txt:
 ```bash
@@ -68,7 +69,8 @@ It only checks for the following rules:
 - Avoiding the use of `import *`
 - Use of `snake_case` for variables and functions, and `CamelCase` for classes
 
->[!NOTE] Not PEP8 but also checked:
+>[!NOTE] 
+> Not PEP8 but also checked:
 > - Avoiding the use of `;` in the code
 > - Not more the +400 lines of code per `.py` file
 

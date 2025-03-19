@@ -1,5 +1,5 @@
-# PEP8-IIC2233
-This repository aims to check whether a folder (with its subfiles) or project complies with *some of PEP8's rules. Mainly the ones evaluated in the PUC course IIC2233
+# PEP8
+This repository aims to check whether a folder (with its subfiles) or project complies with *some of PEP8's rules. Mainly the ones evaluated in some coding courses.
 
 Example output:
 ```text
@@ -74,11 +74,13 @@ It only checks for the following rules:
 > - Avoiding the use of `;` in the code
 > - Not more the +400 lines of code per `.py` file
 
-## Libs Used:
+## Libs Used
 - sys
 - os
 - pathlib 
 - re
 - argparse
+
+All are built-in libraries. 
 
 Made by: [jj-sm](https://github.com/jj-sm/) 🐍

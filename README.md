@@ -31,7 +31,7 @@ python3 <path to checkPEP8.py> <path to folder or file> <optional: log file.txt 
 
 Log on terminal:
 ```bash
-python3 <path to checkPEP8.py> <path to folder or file> <optional: log file.txt saving directory>
+python3 <path to checkPEP8.py> <path to folder or file>
 ```
 
 ### (Optional) If you want to run it directly from the terminal:

@@ -1,6 +1,7 @@
 import sys
 import os
 from pathlib import Path
+from pathspec import PathSpec
 import re
 import argparse
 
@@ -15,21 +16,33 @@ import argparse
 # > - Avoiding the use of `;` in the code
 # > - Not more than +400 lines of code per `.py` file
 
+def load_gitignore_spec(directory: str) -> PathSpec:
+    gitignore_path = Path(directory) / ".gitignore"
+    if gitignore_path.exists():
+        with open(gitignore_path, "r") as f:
+            lines = f.readlines()
+        return PathSpec.from_lines("gitwildmatch", lines)
+    return PathSpec([])  # Return empty spec if no .gitignore
+
 def get_files(directory: str) -> list:
-    check_path = Path(directory)
+    check_path = Path(directory).resolve()
+    spec = load_gitignore_spec(str(check_path))
+
     if not check_path.exists():
         print("Directory or file does not exist")
         sys.exit()
     elif check_path.is_file():
-        return [check_path.name]
+        return [check_path] if check_path.suffix == ".py" and not spec.match_file(check_path.relative_to(check_path.parent)) else []
     elif check_path.is_dir():
         files = []
-        for root, dirs, files_in_dir in os.walk(directory):
+        for root, _, files_in_dir in os.walk(check_path):
             for file in files_in_dir:
-                if file.endswith(".py"):
-                    files.append(Path(root) / file)
-        if len(files) == 0:
-            print("No Python files found in the directory or its subdirectories")
+                file_path = Path(root) / file
+                rel_path = file_path.relative_to(check_path)
+                if file_path.suffix == ".py" and not spec.match_file(str(rel_path)):
+                    files.append(file_path)
+        if not files:
+            print("No Python files found in the directory or its subdirectories (excluding .gitignore)")
             sys.exit()
         return files
     else:

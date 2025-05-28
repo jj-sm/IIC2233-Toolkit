@@ -80,6 +80,7 @@ It only checks for the following rules:
 - pathlib 
 - re
 - argparse
+- pathspec
 
 All are built-in libraries. 
 

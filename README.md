@@ -45,14 +45,14 @@ python3 checkPEP8.py module.py
 ```bash
 # Basic scan with custom rules
 python3 checkLibs.py /path/to/project lib_audit.txt \
-  -allowed "sys os.path datetime" \
-  -prohibited "pandas numpy pickle"
+  -allowed sys os.path datetime \
+  -prohibited pandas numpy pickle
 
 # With detailed allowed submodules
 python3 checkLibs.py /path/to/project lib_audit.txt \
-  -allowed "sys.argv sys.exit os.path" \
-  -allowed "PyQt5.QtWidgets datetime" \
-  -prohibited "pandas numpy re"
+  -allowed sys.argv sys.exit os.path \
+  -allowed PyQt5.QtWidgets datetime \
+  -prohibited pandas numpy re
 ```
 
 ## Installation & Setup
